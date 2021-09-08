@@ -3,7 +3,7 @@ import logo from '../assets/logo.svg';
 import telegram from '../assets/telegram.svg';
 import facebook from '../assets/facebook.svg';
 import linkedin from '../assets/linkedin.svg';
-import { data } from "../constants/data";
+import { link } from "../constants/data";
 
 export default function Footer() {
   return (
@@ -16,19 +16,19 @@ export default function Footer() {
         />
         <p>Copyright © 2021</p>
         <RightSection>
-          <a href={data.fb} target='_blank'> 
+          <a href={link.fb} target='_blank'> 
             <Social
               alt='facebook'
               src={facebook}
             />
           </a>
-          <a href={data.telegram} target='_blank'>
+          <a href={link.telegram} target='_blank'>
             <Social
               alt='telegram'
               src={telegram}
             />
           </a>
-          <a href={data.linkedin} target='_blank'>
+          <a href={link.linkedin} target='_blank'>
             <Social
               alt='linkedin'
               src={linkedin}

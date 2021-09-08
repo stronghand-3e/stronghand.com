@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link as NavLink } from 'react-scroll'
 import { NavLink as NaviLink } from "react-router-dom";
 import styled from "styled-components";
 import logo from '../assets/logo.svg';
 import menu from '../assets/menu.svg';
+import en from '../assets/en.png';
+import kh from '../assets/kh.png';
+import { contents } from "../constants/data";
+import { LangContext } from "../context/LangContext";
 
 export default function Header() {
   const [show, setShow] = useState(false);
+  const {ChangeLang, language} = useContext(LangContext);
+  const {navbar} = contents[language];
 
   return (
     <div>
@@ -18,10 +24,26 @@ export default function Header() {
           />
         </NaviLink>
         <Wrapper>
-          <Link to="solution" smooth={true} duration={500}>Solutions</Link>
-          <Link to="product" smooth={true} duration={500}>Products</Link>
-          <Route to='/about'>About</Route>
+          <Link to="solution" smooth={true} duration={500}>{navbar[0]}</Link>
+          <Link to="product" smooth={true} duration={500}>{navbar[1]}</Link>
+          <Route to='/about'>{navbar[2]}</Route>
         </Wrapper>
+        <LangContainer>
+          <img 
+            src={en}
+            alt='en'
+            width={30}
+            height={30}
+            onClick={() => ChangeLang('en')}
+          />
+          <img 
+            src={kh}
+            alt='en'
+            width={30}
+            height={30}
+            onClick={() => ChangeLang('kh')}
+          />
+        </LangContainer>
         <Menu 
           src={menu}
           alt='menu'
@@ -29,9 +51,27 @@ export default function Header() {
         />
       </Container>
       <Sidebar show={show}>
-        <MobileNav to="solution" spy={true} smooth={true}>Solutions</MobileNav>
-        <MobileNav to="product" smooth={true} duration={500}>Products</MobileNav>
-        <MobileRoute to='/about'>About</MobileRoute>
+        <MobileNav to="solution" spy={true} smooth={true}>{navbar[0]}</MobileNav>
+        <MobileNav to="product" smooth={true} duration={500}>{navbar[1]}</MobileNav>
+        <MobileRoute to='/about'>{navbar[2]}</MobileRoute>
+        <div style={{textAlign: 'center'}}>
+          <img 
+            src={en}
+            alt='en'
+            width={30}
+            height={30}
+            style={{marginRight: '5px'}}
+            onClick={() => ChangeLang('en')}
+          />
+          <img 
+            src={kh}
+            alt='en'
+            width={30}
+            height={30}
+            style={{marginLeft: '5px'}}
+            onClick={() => ChangeLang('kh')}
+          />
+        </div>
       </Sidebar>
     </div>
   )
@@ -64,6 +104,14 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 40px;
+  @media ${(props) => props.theme.breakpoints.sm} {
+    display: none;
+  }
+`
+const LangContainer = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
   @media ${(props) => props.theme.breakpoints.sm} {
     display: none;
   }

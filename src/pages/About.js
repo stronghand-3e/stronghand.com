@@ -1,8 +1,13 @@
+import { useContext } from "react"
 import styled from "styled-components"
 import logo from '../assets/logo.svg'
-import { data } from "../constants/data"
+import { contents } from "../constants/data"
+import { LangContext } from "../context/LangContext"
 
 export default function About() {
+  const {language} = useContext(LangContext);
+  const {about_title, about_description} = contents[language];
+
   return (
     <Wrapper>
       <Container>
@@ -13,8 +18,8 @@ export default function About() {
           />
         </LeftSection>
         <RightSection>
-          <Title>{data.about_title}</Title>
-          <Description>{data.about_description}</Description>
+          <Title>{about_title}</Title>
+          <Description>{about_description}</Description>
         </RightSection>
       </Container>
     </Wrapper>

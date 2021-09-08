@@ -3,19 +3,33 @@ import background from '../assets/background.svg';
 import plumbing from '../assets/plumbing2.svg';
 import electric from '../assets/electric.svg';
 import product from '../assets/SlashScreen.png';
-import { data } from "../constants/data";
+import { contents, link } from "../constants/data";
+import { LangContext } from "../context/LangContext";
+import { useContext } from "react";
 
 export default function Home() {
+  const {language} = useContext(LangContext);
+  const {
+    title, 
+    about_description,
+    solution_title,
+    solution1,
+    solution2,
+    solution3,
+    product_title,
+    product_description
+  } = contents[language];
+
   return (
     <Wrapper>
       <Container>
         <SectionLeft>
-          <Title>{data.title}</Title>
+          <Title>{title}</Title>
           <Row>
-            <a href={data.android} target='_blank'>
+            <a href={link.android} target='_blank'>
               <Button>Android</Button>
             </a>
-            <a href={data.ios} target='_blank'>
+            <a href={link.ios} target='_blank'>
               <Button>IOS</Button>
             </a>
           </Row>
@@ -28,41 +42,41 @@ export default function Home() {
         </SectionRight>
       </Container>
       <div id="solution">
-        <Subtitle>Solutions</Subtitle>
+        <Subtitle>{solution_title}</Subtitle>
         <Feature>
           <div>
             <Image 
               alt='bg'
               src={background}
             />
-            <Description center>{data.solution1}</Description>
+            <Description center>{solution1}</Description>
           </div>
           <div>
             <Image 
               alt='bg'
               src={electric}
             />
-            <Description center>{data.solution2}</Description>
+            <Description center>{solution2}</Description>
           </div>
           <div>
             <Image 
               alt='bg'
               src={plumbing}
             />
-            <Description center>{data.solution3}</Description>
+            <Description center>{solution3}</Description>
           </div>
         </Feature>
       </div>
       <div id='product'>
         <Product>
           <div>
-            <Subtitle>{data.product_title}</Subtitle>
-            <Description>{data.product_description}</Description>
+            <Subtitle>{product_title}</Subtitle>
+            <Description>{product_description}</Description>
             <Row>
-              <a href={data.android} target='_blank'>
+              <a href={link.android} target='_blank'>
                 <Button>Android</Button>
               </a>
-              <a href={data.ios} target='_blank'>
+              <a href={link.ios} target='_blank'>
                 <Button>IOS</Button>
               </a>
             </Row>
