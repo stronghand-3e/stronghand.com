@@ -89,8 +89,8 @@ const Container = styled.div`
   }
 `
 const Logo = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 `
 const Menu = styled.img`
   width: 35px;

@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   html, body {
     height: 100%;
-    font-family: 'Nokora',Arial,sans-serif, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Nokora', 'Khmer', Arial,sans-serif, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: ${props => props.theme.colors.background};

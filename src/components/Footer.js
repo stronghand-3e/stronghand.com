@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo_name.png';
 import telegram from '../assets/telegram.svg';
 import facebook from '../assets/facebook.svg';
 import linkedin from '../assets/linkedin.svg';
@@ -15,7 +15,6 @@ export default function Footer() {
           alt='logo'
           src={logo}
         />
-        <p align="center">Copyright © 2021</p>
         </div>
         <div>
           <p>About</p>
@@ -43,6 +42,7 @@ export default function Footer() {
           </a>
         </RightSection>
       </Container>
+      <p align="center">Copyright © 2021</p>
     </div>
   )
 }
@@ -60,8 +60,8 @@ const Container = styled.div`
   align-items: center;
 `
 const Logo = styled.img`
-  width: 125px;
-  height: 60px;
+  width: 150px;
+  height: auto;
 `
 const RightSection = styled.div`
   display: grid;

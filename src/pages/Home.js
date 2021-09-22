@@ -52,14 +52,14 @@ export default function Home() {
             <Description center>{solution1}</Description>
           </div>
           <div>
-            <Image 
+            <Image
               alt='bg'
               src={electric}
             />
             <Description center>{solution2}</Description>
           </div>
           <div>
-            <Image 
+            <Image
               alt='bg'
               src={plumbing}
             />
@@ -130,7 +130,7 @@ const Row = styled.div`
 const Title = styled.h1`
   flex: 1;
   color: #FFF;
-  font-size: 88px;
+  font-size: 55px;
   margin-top: 0;
   @media ${(props) => props.theme.breakpoints.sm} {
     font-size: 50px;
