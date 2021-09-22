@@ -10,11 +10,18 @@ export default function Footer() {
     <div>
       <Line />
       <Container>
+        <div>
         <Logo 
           alt='logo'
           src={logo}
         />
-        <p>Copyright © 2021</p>
+        <p align="center">Copyright © 2021</p>
+        </div>
+        <div>
+          <p>About</p>
+          <p>Privacy & Policy </p>
+          <p>Term Of Use</p>
+        </div>
         <RightSection>
           <a href={link.fb} target='_blank'> 
             <Social
@@ -53,7 +60,7 @@ const Container = styled.div`
   align-items: center;
 `
 const Logo = styled.img`
-  width: 60px;
+  width: 125px;
   height: 60px;
 `
 const RightSection = styled.div`
