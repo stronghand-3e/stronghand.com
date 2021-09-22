@@ -13,9 +13,9 @@ export const contents = {
       'Product',
       'about'
     ],
-    title: 'Experience the power of DeFi with Bitriel',
+    title: 'Specialize in providing comfort for rooms or offices.',
     product_title: 'Stronghand 3E',
-    product_description: 'Digital wallet management for cross-chain assets, staking and governance operations, collection and self-owned private key.',
+    product_description: 'We are a specialist that provides comfort for your room or office.',
     about_title: 'About Stronghand',
     about_description: 'We are a specialist that provides comfort for your room or office. Do not allow a power outlet to cause a fire. We insured our plumbing offering quality, affordable, and 100% satisfaction guaranteed services to our local communities.',
     solution_title: 'Solution',
