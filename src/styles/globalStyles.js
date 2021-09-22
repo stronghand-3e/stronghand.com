@@ -15,6 +15,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${props => props.theme.colors.background};
     color: #fff;
     font-size: 16px;
+    line-height: 1.5;
 
   .lhGYNd {
       flex: 1;
