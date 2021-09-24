@@ -6,12 +6,12 @@ import product from '../assets/SlashScreen.png';
 import { contents, link } from "../constants/data";
 import { LangContext } from "../context/LangContext";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 
 export default function Home() {
   const {language} = useContext(LangContext);
   const {
     title, 
-    about_description,
     solution_title,
     solution1,
     solution2,
@@ -22,6 +22,10 @@ export default function Home() {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Stronghand 3E</title>
+        <meta name="description" content="Specialize in providing comfort for rooms or offices." />
+      </Helmet>
       <Container>
         <SectionLeft>
           <Title>{title}</Title>
@@ -98,7 +102,7 @@ export default function Home() {
 const Wrapper = styled.div`
   max-width: 1216px;
   margin: auto;
-  @media ${(props) => props.theme.breakpoints.md} {
+  @media screen and (max-width: 1216px) {
     padding: 0 10px;
   }
 `
@@ -106,6 +110,10 @@ const Container = styled.div`
   padding: 10rem 0;
   display: flex;
   justify-content: space-between;
+  /* @media screen and (min-width: 768px) {
+    display: initial;
+    padding: 10rem 0;
+  } */
   @media ${(props) => props.theme.breakpoints.md} {
     display: initial;
     padding: 0 10px;

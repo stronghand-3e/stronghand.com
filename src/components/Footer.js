@@ -58,6 +58,9 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 1216px) {
+    padding: 0 10px;
+  }
 `
 const Logo = styled.img`
   width: 150px;

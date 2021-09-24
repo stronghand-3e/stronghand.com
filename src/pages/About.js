@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import logo from '../assets/logo.svg'
 import { contents } from "../constants/data"
@@ -10,6 +11,10 @@ export default function About() {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>About Us | Stronghand 3E</title>
+        <meta name="description" content="We are a specialist that provides comfort for your room or office. Do not allow a power outlet to cause a fire. We insured our plumbing offering quality, affordable, and 100% satisfaction guaranteed services to our local communities." />
+      </Helmet>
       <Container>
         <LeftSection>
           <Logo 
