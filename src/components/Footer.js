@@ -4,6 +4,7 @@ import telegram from '../assets/telegram.svg';
 import facebook from '../assets/facebook.svg';
 import linkedin from '../assets/linkedin.svg';
 import { link } from "../constants/data";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -11,15 +12,15 @@ export default function Footer() {
       <Line />
       <Container>
         <div>
-        <Logo 
+        <Logo
           alt='logo'
           src={logo}
         />
         </div>
         <div>
-          <p>About</p>
-          <p>Privacy & Policy </p>
-          <p>Term Of Use</p>
+          <FooterItem to='/about'>About</FooterItem>
+          <FooterItem to='privacy&policy'>Privacy & Policy </FooterItem>
+          <FooterItem to='termofuse'>Term Of Use</FooterItem>
         </div>
         <RightSection>
           <a href={link.fb} target='_blank'> 
@@ -74,4 +75,12 @@ const RightSection = styled.div`
 const Social = styled.img`
   width: 40px;
   height: 40px;
+`
+const FooterItem = styled(NavLink)`
+  display: block;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 5px;
 `

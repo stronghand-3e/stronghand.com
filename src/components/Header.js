@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
-import { Link as NavLink } from 'react-scroll'
+import { scroller } from 'react-scroll'
 import { NavLink as NaviLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 import styled from "styled-components";
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo_name.png';
 import menu from '../assets/menu.svg';
 import en from '../assets/en.png';
 import kh from '../assets/kh.png';
@@ -10,9 +12,18 @@ import { contents } from "../constants/data";
 import { LangContext } from "../context/LangContext";
 
 export default function Header() {
+  const history = useHistory();
   const [show, setShow] = useState(false);
   const {ChangeLang, language} = useContext(LangContext);
   const {navbar} = contents[language];
+
+  const scrollTarget = (target) => scroller.scrollTo(target, {smooth: true, duration: 700});
+  const scrollToPage = async (target) => {
+    if (history.location.pathname !=='/') {
+      await history.push('/');
+    }
+    scrollTarget(target);
+  };
 
   return (
     <div>
@@ -24,8 +35,8 @@ export default function Header() {
           />
         </NaviLink>
         <Wrapper>
-          <Link to="solution" smooth={true} duration={500}>{navbar[0]}</Link>
-          <Link to="product" smooth={true} duration={500}>{navbar[1]}</Link>
+          <Link onClick={() => scrollToPage('solution')}>Solution</Link>
+          <Link onClick={() => scrollToPage('product')}>Product</Link>
           <Route to='/about'>{navbar[2]}</Route>
         </Wrapper>
         <LangContainer>
@@ -51,8 +62,8 @@ export default function Header() {
         />
       </Container>
       <Sidebar show={show}>
-        <MobileNav to="solution" spy={true} smooth={true}>{navbar[0]}</MobileNav>
-        <MobileNav to="product" smooth={true} duration={500}>{navbar[1]}</MobileNav>
+        <MobileNav onClick={() => scrollToPage('solution')}>{navbar[0]}</MobileNav>
+        <MobileNav onClick={() => scrollToPage('product')}>{navbar[1]}</MobileNav>
         <MobileRoute to='/about'>{navbar[2]}</MobileRoute>
         <div style={{textAlign: 'center'}}>
           <img 
@@ -79,7 +90,7 @@ export default function Header() {
 
 const Container = styled.div`
   max-width: 1216px;
-  height: 60px;
+  height: 100px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -89,8 +100,8 @@ const Container = styled.div`
   }
 `
 const Logo = styled.img`
-  width: 45px;
-  height: 45px;
+  width: auto;
+  height: 80px;
 `
 const Menu = styled.img`
   width: 35px;
@@ -116,7 +127,7 @@ const LangContainer = styled.div`
     display: none;
   }
 `
-const Link = styled(NavLink)`
+const Link = styled.div`
   font-size: 20px;
   font-weight: 600;
   transition: 0.4s ease;
@@ -132,7 +143,7 @@ const Route = styled(NaviLink)`
   text-decoration: none;
   cursor: pointer;
 `
-const MobileNav = styled(NavLink)`
+const MobileNav = styled.div`
   font-size: 20px;
   font-weight: 600;
   transition: 0.4s ease;
